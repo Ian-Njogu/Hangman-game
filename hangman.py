@@ -38,7 +38,7 @@ def hangman_game():
             print("Guessed letters:", ", ".join(sorted(guessed_letters)))
 
     if '_' not in word_display:
-        print("Congratulations! You escaped the monster. You WON!")
+        print(f"Congratulations! You escaped the monster. The word was {word}. You WON!")
     else:
         print(f"The monster got you... The word was '{word}'. You LOST!")
 
