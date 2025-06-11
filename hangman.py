@@ -20,4 +20,19 @@ def hangman_game():
                 raise ValueError("You've already entered that letter")
         except ValueError as ve:
             print(ve)
+            continue
+
+        guessed_letters.add(guess)
+
+        if guess in word:
+            print("The letter is in the word")
+            for i, letter in enumerate(word):
+                if letter == guess:
+                    word_display[i] == guess
+        else:
+            attempts -= 1
+            
+            print(f"Wrong guess! The monster gets closer... {attempts} attempts left.")
+            print("Word:", " ".join(word_display))
+            print("Guessed letters:", ", ".join(sorted(guessed_letters)))
 
