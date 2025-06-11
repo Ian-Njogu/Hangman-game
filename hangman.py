@@ -15,7 +15,7 @@ def hangman_game():
         guess = input("Enter a letter: ").lower()
     #try block for input validation
         try:
-            if len(guess) !=1 or not guess.alpha():
+            if len(guess) !=1 or not guess.isalpha():
                 raise ValueError("Please enter a single alphabetical letter")
             if guess in guessed_letters:
                 raise ValueError("You've already entered that letter")
@@ -29,7 +29,7 @@ def hangman_game():
             print("The letter is in the word")
             for i, letter in enumerate(word):
                 if letter == guess:
-                    word_display[i] == guess
+                    word_display[i] = guess
         else:
             attempts -= 1
 
@@ -37,9 +37,9 @@ def hangman_game():
             print("Word:", " ".join(word_display))
             print("Guessed letters:", ", ".join(sorted(guessed_letters)))
 
-        if '_' not in word_display:
-            print("Congratulations! You escaped the monster. You WON!")
-        else:
-            print(f"The monster got you... The word was '{word}'. You LOST!")
+    if '_' not in word_display:
+        print("Congratulations! You escaped the monster. You WON!")
+    else:
+        print(f"The monster got you... The word was '{word}'. You LOST!")
 
 hangman_game()
